@@ -1,0 +1,75 @@
+// ── Theme toggle ──────────────────────────────
+const themeToggle = document.getElementById('themeToggle');
+const root = document.documentElement;
+
+const saved = localStorage.getItem('theme') ||
+  (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+root.setAttribute('data-theme', saved);
+
+themeToggle.addEventListener('click', () => {
+  const current = root.getAttribute('data-theme');
+  const next = current === 'dark' ? 'light' : 'dark';
+  root.setAttribute('data-theme', next);
+  localStorage.setItem('theme', next);
+});
+
+// ── Nav scroll effect ─────────────────────────
+const nav = document.getElementById('nav');
+window.addEventListener('scroll', () => {
+  nav.classList.toggle('scrolled', window.scrollY > 20);
+}, { passive: true });
+
+// ── Mobile hamburger ──────────────────────────
+const hamburger = document.getElementById('hamburger');
+const navMobile = document.getElementById('navMobile');
+
+hamburger.addEventListener('click', () => {
+  navMobile.classList.toggle('open');
+});
+
+navMobile.querySelectorAll('a').forEach(a => {
+  a.addEventListener('click', () => navMobile.classList.remove('open'));
+});
+
+// ── Smooth scroll for nav links ───────────────
+document.querySelectorAll('a[href^="#"]').forEach(link => {
+  link.addEventListener('click', e => {
+    const target = document.querySelector(link.getAttribute('href'));
+    if (!target) return;
+    e.preventDefault();
+    const offset = target.getBoundingClientRect().top + window.scrollY - 72;
+    window.scrollTo({ top: offset, behavior: 'smooth' });
+  });
+});
+
+// ── Scroll-triggered fade-in animations ───────
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.classList.add('visible');
+      observer.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+document.querySelectorAll('.project-card, .blog-item, .about-grid > *, .contact-grid > *')
+  .forEach(el => {
+    el.classList.add('fade-up');
+    observer.observe(el);
+  });
+
+// ── Contact form (client-side only placeholder) ─
+const form = document.getElementById('contactForm');
+form.addEventListener('submit', e => {
+  e.preventDefault();
+  const btn = form.querySelector('button[type="submit"]');
+  btn.textContent = 'Message sent!';
+  btn.style.background = '#22c55e';
+  btn.disabled = true;
+  setTimeout(() => {
+    btn.textContent = 'Send message →';
+    btn.style.background = '';
+    btn.disabled = false;
+    form.reset();
+  }, 3000);
+});
