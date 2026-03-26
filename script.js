@@ -81,6 +81,28 @@ expTabs.forEach((tab, i) => {
   });
 });
 
+// ── Skills tabs ────────────────────────────────
+const skillTabs = document.querySelectorAll('.skill-tab');
+const skillPanels = document.querySelectorAll('.skill-panel');
+const skillIndicator = document.querySelector('.skill-indicator');
+
+function activateSkillTab(index) {
+  skillTabs.forEach(t => { t.classList.remove('active'); t.setAttribute('aria-selected', 'false'); });
+  skillPanels.forEach(p => p.classList.remove('active'));
+  skillTabs[index].classList.add('active');
+  skillTabs[index].setAttribute('aria-selected', 'true');
+  skillPanels[index].classList.add('active');
+  skillIndicator.style.transform = `translateY(${index * TAB_H}px)`;
+}
+
+skillTabs.forEach((tab, i) => {
+  tab.addEventListener('click', () => activateSkillTab(i));
+  tab.addEventListener('keydown', e => {
+    if (e.key === 'ArrowDown') { e.preventDefault(); activateSkillTab((i + 1) % skillTabs.length); skillTabs[(i + 1) % skillTabs.length].focus(); }
+    if (e.key === 'ArrowUp')   { e.preventDefault(); activateSkillTab((i - 1 + skillTabs.length) % skillTabs.length); skillTabs[(i - 1 + skillTabs.length) % skillTabs.length].focus(); }
+  });
+});
+
 // ── Contact form (client-side only placeholder) ─
 const form = document.getElementById('contactForm');
 form.addEventListener('submit', e => {
