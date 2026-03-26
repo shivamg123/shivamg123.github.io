@@ -59,9 +59,9 @@ document.querySelectorAll('.project-card, .blog-item, .about-grid > *, .contact-
   });
 
 // ── Experience tabs ────────────────────────────
-const expTabs = document.querySelectorAll('.exp-tab');
-const expPanels = document.querySelectorAll('.exp-panel');
-const expIndicator = document.querySelector('.exp-indicator');
+const expTabs = document.querySelectorAll('#experience .exp-tab');
+const expPanels = document.querySelectorAll('#experience .exp-panel');
+const expIndicator = document.querySelector('#experience .exp-indicator');
 const TAB_H = 42;
 
 function activateTab(index) {
@@ -82,9 +82,9 @@ expTabs.forEach((tab, i) => {
 });
 
 // ── Skills tabs ────────────────────────────────
-const skillTabs = document.querySelectorAll('.skill-tab');
-const skillPanels = document.querySelectorAll('.skill-panel');
-const skillIndicator = document.querySelector('.skill-indicator');
+const skillTabs = document.querySelectorAll('#skills .skill-tab');
+const skillPanels = document.querySelectorAll('#skills .skill-panel');
+const skillIndicator = document.querySelector('#skills .skill-indicator');
 
 function activateSkillTab(index) {
   skillTabs.forEach(t => { t.classList.remove('active'); t.setAttribute('aria-selected', 'false'); });
