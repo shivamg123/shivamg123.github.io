@@ -465,6 +465,11 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   line-height: 1;
 }
 
+.skill-text-icon {
+  font-size: 0.9rem;
+  line-height: 1;
+}
+
 #skills .exp-panels {
   background: var(--surface);
   border: 1px solid var(--border);
