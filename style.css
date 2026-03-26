@@ -427,6 +427,168 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 }
 
 /* ============================================
+   EXPERIENCE
+   ============================================ */
+.exp-container {
+  display: flex;
+  gap: 3rem;
+  align-items: flex-start;
+  margin-top: 2.5rem;
+}
+
+.exp-tablist {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+  width: 160px;
+  border-left: 2px solid var(--border);
+}
+
+.exp-tab {
+  padding: 0 1.25rem;
+  height: 42px;
+  display: flex;
+  align-items: center;
+  font-size: 0.85rem;
+  font-weight: 500;
+  font-family: 'SF Mono', 'Fira Code', 'Fira Mono', monospace;
+  color: var(--text-3);
+  background: transparent;
+  border: none;
+  text-align: left;
+  cursor: pointer;
+  transition: color var(--transition), background var(--transition);
+  white-space: nowrap;
+}
+
+.exp-tab:hover {
+  color: var(--accent);
+  background: var(--accent-bg);
+}
+
+.exp-tab.active {
+  color: var(--accent);
+}
+
+.exp-indicator {
+  position: absolute;
+  left: -2px;
+  top: 0;
+  width: 2px;
+  height: 42px;
+  background: var(--accent);
+  border-radius: 2px;
+  transition: transform 0.25s cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+
+.exp-panels {
+  flex: 1;
+  min-width: 0;
+}
+
+.exp-panel {
+  display: none;
+}
+
+.exp-panel.active {
+  display: block;
+  animation: fadeInPanel 0.2s ease;
+}
+
+@keyframes fadeInPanel {
+  from { opacity: 0; transform: translateY(6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.exp-title {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 0.35rem;
+  letter-spacing: -0.01em;
+}
+
+.exp-at {
+  color: var(--accent);
+  font-weight: 500;
+}
+
+.exp-at a {
+  color: var(--accent);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: border-color var(--transition);
+}
+
+.exp-at a:hover {
+  border-bottom-color: var(--accent);
+}
+
+.exp-range {
+  font-family: 'SF Mono', 'Fira Code', 'Fira Mono', monospace;
+  font-size: 0.8rem;
+  color: var(--text-3);
+  margin-bottom: 1.5rem;
+  letter-spacing: 0.03em;
+}
+
+.exp-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.exp-list li {
+  position: relative;
+  padding-left: 1.5rem;
+  font-size: 0.95rem;
+  color: var(--text-2);
+  line-height: 1.6;
+}
+
+.exp-list li::before {
+  content: '▹';
+  position: absolute;
+  left: 0;
+  color: var(--accent);
+  font-size: 0.85rem;
+  top: 0.05em;
+}
+
+@media (max-width: 640px) {
+  .exp-container {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .exp-tablist {
+    width: 100%;
+    flex-direction: row;
+    border-left: none;
+    border-bottom: 2px solid var(--border);
+    overflow-x: auto;
+  }
+
+  .exp-tab {
+    height: 40px;
+    padding: 0 1rem;
+    border-bottom: none;
+  }
+
+  .exp-indicator {
+    left: 0;
+    top: auto;
+    bottom: -2px;
+    width: 160px;
+    height: 2px;
+    transform: translateX(0) !important;
+    transition: transform 0.25s cubic-bezier(0.645, 0.045, 0.355, 1);
+  }
+}
+
+/* ============================================
    PROJECTS
    ============================================ */
 .projects-grid {

@@ -18,6 +18,7 @@
       <a href="#home" class="nav-logo">sg.</a>
       <ul class="nav-links">
         <li><a href="#about">About</a></li>
+        <li><a href="#experience">Experience</a></li>
         <li><a href="#projects">Projects</a></li>
         <li><a href="#blog">Blog</a></li>
         <li><a href="#contact">Contact</a></li>
@@ -32,6 +33,7 @@
     </div>
     <div class="nav-mobile" id="navMobile">
       <a href="#about">About</a>
+      <a href="#experience">Experience</a>
       <a href="#projects">Projects</a>
       <a href="#blog">Blog</a>
       <a href="#contact">Contact</a>
@@ -97,10 +99,64 @@
     </div>
   </section>
 
-  <!-- Projects -->
-  <section class="section section-alt" id="projects">
+  <!-- Experience -->
+  <section class="section section-alt" id="experience">
     <div class="container">
-      <div class="section-label">02 — Projects</div>
+      <div class="section-label">02 — Experience</div>
+      <h2 class="section-title">Where I've worked</h2>
+      <div class="exp-container">
+
+        <div class="exp-tablist" role="tablist" aria-label="Job tabs">
+          <button class="exp-tab active" role="tab" aria-selected="true" data-tab="0">Microsoft</button>
+          <button class="exp-tab" role="tab" aria-selected="false" data-tab="1">Freelance</button>
+          <button class="exp-tab" role="tab" aria-selected="false" data-tab="2">Startup</button>
+          <div class="exp-indicator"></div>
+        </div>
+
+        <div class="exp-panels">
+
+          <div class="exp-panel active" role="tabpanel" data-panel="0">
+            <h3 class="exp-title">Software Engineer <span class="exp-at">@ <a href="https://microsoft.com" target="_blank" rel="noopener">Microsoft</a></span></h3>
+            <p class="exp-range">Jan 2024 — Present</p>
+            <ul class="exp-list">
+              <li>Build and maintain features for large-scale cloud services used by millions of customers across Azure.</li>
+              <li>Collaborate with cross-functional teams to design and ship reliable, performant backend systems.</li>
+              <li>Drive automation initiatives that reduced manual toil by 40% across the team's operational workflows.</li>
+              <li>Participate in on-call rotations, incident response, and root cause analysis for critical services.</li>
+            </ul>
+          </div>
+
+          <div class="exp-panel" role="tabpanel" data-panel="1">
+            <h3 class="exp-title">Full Stack Developer <span class="exp-at">@ <a href="#" target="_blank" rel="noopener">Freelance</a></span></h3>
+            <p class="exp-range">Jun 2022 — Dec 2023</p>
+            <ul class="exp-list">
+              <li>Designed and built web applications for clients ranging from early-stage startups to small businesses.</li>
+              <li>Delivered full-stack solutions using React, Node.js, and cloud platforms including AWS and Azure.</li>
+              <li>Managed client relationships, requirements gathering, and end-to-end project delivery independently.</li>
+              <li>Integrated third-party APIs, payment systems, and authentication flows across multiple projects.</li>
+            </ul>
+          </div>
+
+          <div class="exp-panel" role="tabpanel" data-panel="2">
+            <h3 class="exp-title">Software Developer Intern <span class="exp-at">@ <a href="#" target="_blank" rel="noopener">Startup</a></span></h3>
+            <p class="exp-range">May 2021 — Aug 2021</p>
+            <ul class="exp-list">
+              <li>Contributed to a fast-moving product team building a SaaS platform for operations management.</li>
+              <li>Shipped UI components and API integrations that shipped to production within weeks of joining.</li>
+              <li>Wrote unit and integration tests, improving overall code coverage from 55% to 80%.</li>
+              <li>Worked closely with designers and PMs in daily standups and sprint planning sessions.</li>
+            </ul>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects -->
+  <section class="section" id="projects">
+    <div class="container">
+      <div class="section-label">03 — Projects</div>
       <h2 class="section-title">Things I've built</h2>
       <p class="section-sub">A selection of projects I've worked on — ranging from tools I built for myself to things others actually use.</p>
       <div class="projects-grid">
@@ -167,7 +223,7 @@
   <!-- Blog -->
   <section class="section" id="blog">
     <div class="container">
-      <div class="section-label">03 — Blog</div>
+      <div class="section-label">04 — Blog</div>
       <h2 class="section-title">Writing</h2>
       <p class="section-sub">Thoughts on software, systems, and the craft of building.</p>
       <div class="blog-list">
@@ -227,7 +283,7 @@
   <!-- Contact -->
   <section class="section section-alt" id="contact">
     <div class="container">
-      <div class="section-label">04 — Contact</div>
+      <div class="section-label">05 — Contact</div>
       <div class="contact-grid">
         <div class="contact-left">
           <h2 class="section-title">Let's talk.</h2>

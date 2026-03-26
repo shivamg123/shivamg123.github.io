@@ -58,6 +58,29 @@ document.querySelectorAll('.project-card, .blog-item, .about-grid > *, .contact-
     observer.observe(el);
   });
 
+// ── Experience tabs ────────────────────────────
+const expTabs = document.querySelectorAll('.exp-tab');
+const expPanels = document.querySelectorAll('.exp-panel');
+const expIndicator = document.querySelector('.exp-indicator');
+const TAB_H = 42;
+
+function activateTab(index) {
+  expTabs.forEach(t => { t.classList.remove('active'); t.setAttribute('aria-selected', 'false'); });
+  expPanels.forEach(p => p.classList.remove('active'));
+  expTabs[index].classList.add('active');
+  expTabs[index].setAttribute('aria-selected', 'true');
+  expPanels[index].classList.add('active');
+  expIndicator.style.transform = `translateY(${index * TAB_H}px)`;
+}
+
+expTabs.forEach((tab, i) => {
+  tab.addEventListener('click', () => activateTab(i));
+  tab.addEventListener('keydown', e => {
+    if (e.key === 'ArrowDown') { e.preventDefault(); activateTab((i + 1) % expTabs.length); expTabs[(i + 1) % expTabs.length].focus(); }
+    if (e.key === 'ArrowUp')   { e.preventDefault(); activateTab((i - 1 + expTabs.length) % expTabs.length); expTabs[(i - 1 + expTabs.length) % expTabs.length].focus(); }
+  });
+});
+
 // ── Contact form (client-side only placeholder) ─
 const form = document.getElementById('contactForm');
 form.addEventListener('submit', e => {
